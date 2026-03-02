@@ -133,7 +133,7 @@ class ImageReward(nn.Module):
         rewards = self.mlp(txt_features)
         rewards = (rewards - self.mean) / self.std
         
-        return rewards.detach().cpu().numpy().item()
+        return rewards.detach().cpu().float().numpy().item()
 
 
     def inference_rank(self, prompt, generations_list):
